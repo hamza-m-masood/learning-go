@@ -17,12 +17,12 @@ func main() {
 	printSum := func(v1, v2 *value) {
 		defer wg.Done()
 		v1.mu.Lock()
-
 		defer v1.mu.Unlock()
-		time.Sleep(2 * time.Second)
 
+		time.Sleep(2 * time.Second)
 		v2.mu.Lock()
 		defer v2.mu.Unlock()
+
 		fmt.Printf("sum=%v\n", v1.value+v2.value)
 	}
 
