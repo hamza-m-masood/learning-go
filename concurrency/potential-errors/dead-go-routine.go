@@ -9,3 +9,4 @@ func main() {
 }
 
 // empty go routine will hang around until process exits
+// will not be garbage collected
