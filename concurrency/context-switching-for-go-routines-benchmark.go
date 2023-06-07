@@ -10,6 +10,7 @@ func BenchmarkContextSwitch(b *testing.B) {
 	begin := make(chan struct{})
 	c := make(chan struct{})
 	var token struct{}
+
 	sender := func() {
 		defer wg.Done()
 		<-begin
@@ -17,6 +18,7 @@ func BenchmarkContextSwitch(b *testing.B) {
 			c <- token
 		}
 	}
+
 	receiver := func() {
 		defer wg.Done()
 		<-begin
