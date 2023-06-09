@@ -18,4 +18,4 @@ func main() {
 	myPool.Get()
 }
 
-// pool is only called twice
+// pool is only called twic

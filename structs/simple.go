@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 type person struct {
-	name string
-	age  int
+	name string `json:"name" yaml:"name"`
+	age  int    `json:"age"  yaml:"age"`
 }
 
 func newPerson(name string) *person {
@@ -41,4 +41,10 @@ func main() {
 		true,
 	}
 	fmt.Println(dog)
+	type hello struct {
+		name string
+	}
+	fmt.Println(hello{
+		name: "hello",
+	})
 }
