@@ -10,5 +10,6 @@ func main() {
 		stringStream <- "Hello channels!"
 	}()
 
-	fmt.Println(<-stringStream)
+	salutations, ok := <-stringStream
+	fmt.Println(salutations, ok)
 }
