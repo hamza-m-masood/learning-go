@@ -18,4 +18,7 @@ func main() {
 
 	// channel instantiation for writing
 	thirdChan = make(chan<- interface{})
+
+	// this is valid because go implicitly converts channel from bidirectional to unidirectional
+	thirdChan = firstChan
 }
