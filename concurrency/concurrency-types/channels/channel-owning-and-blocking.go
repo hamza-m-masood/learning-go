@@ -13,6 +13,7 @@ func main() {
 		}()
 		return resultStream
 	}
+	// implicitly converted to a read only channel
 	resultStream := chanOwner()
 	for result := range resultStream {
 		fmt.Printf("Received: %d\n", result)
