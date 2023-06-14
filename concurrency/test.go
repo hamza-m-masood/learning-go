@@ -1,9 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+	"os"
+)
 
 func main() {
-	for {
-		fmt.Println("hello")
-	}
+	var stdOutBuff bytes.Buffer
+	fmt.Fprintln(&stdOutBuff, "Producer Done")
+	stdOutBuff.WriteTo(os.Stdout)
 }
