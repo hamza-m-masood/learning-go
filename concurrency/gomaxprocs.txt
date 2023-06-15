@@ -1,0 +1,5 @@
+In the runtime package there is a function called the GOMAXPROCS. This function calls the number of os threads that will host the work queues. 
+
+runtime.GOMAXPROCS(runtime.NumCPU())
+
+This snippet takes advantage of all the cores within the cpu. 
