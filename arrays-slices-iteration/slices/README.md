@@ -1,0 +1,1 @@
+the capacity of the slice does not matter if the lenght is smaller than what you need to copy. 
