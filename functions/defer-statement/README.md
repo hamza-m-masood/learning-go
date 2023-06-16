@@ -1,0 +1,1 @@
+This shows that deferring a print statement would only defer the print statement and not the command inside the print statement. 
