@@ -16,3 +16,6 @@ func main() {
 		fmt.Println(num)
 	}
 }
+
+// loopData is available outside of handleData but only handleData is using it.
+// this is confinement through convention which is hard to keep because mistakes can be made.

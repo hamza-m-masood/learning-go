@@ -22,3 +22,6 @@ func main() {
 	go printData(&wg, data[3:])
 	wg.Wait()
 }
+
+// This is an example of confinement using a data structure that is not concurrent safe
+// a concurrent safe datastructure would be a channel
