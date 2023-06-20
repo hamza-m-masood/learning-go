@@ -1,13 +1,20 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
-	"os"
 )
 
 func main() {
-	var stdOutBuff bytes.Buffer
-	fmt.Fprintln(&stdOutBuff, "Producer Done")
-	stdOutBuff.WriteTo(os.Stdout)
+	data := make([]int, 4)
+	loopData := func(handleData chan<- int) {
+		defer close(handleData)
+		for i := range data {
+			handleData <- data[i]
+		}
+	}
+	handleData := make(chan int)
+	go loopData(handleData)
+	for num := range handleData {
+		fmt.Println(num)
+	}
 }
