@@ -1,3 +1,3 @@
-module github.com/HamzaMasood1/datastructures-golang
+module github.com/HamzaMasood1/learning-go/datastructures
 
 go 1.20

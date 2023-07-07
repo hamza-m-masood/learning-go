@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/HamzaMasood1/datastructures-golang/trees/binaryTree"
+	"github.com/HamzaMasood1/learning-go/datastructures/trees/binaryTree"
 )
 
 func main() {
