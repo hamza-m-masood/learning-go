@@ -14,7 +14,7 @@
 
 ## Nonlinear datastructures
 1. Trees
-2. TAbles
+2. Tables
 3. Containers
 
 ## homogeneous datastructures
