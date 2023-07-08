@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/HamzaMasood1/learning-go/datastructures/lists"
+	"github.com/HamzaMasood1/learning-go/datastructures/heaps"
 )
 
 func main() {
-	lists.List()
+	heaps.Run()
 }
