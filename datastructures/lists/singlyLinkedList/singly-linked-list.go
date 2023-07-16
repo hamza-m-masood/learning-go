@@ -45,9 +45,10 @@ func (list *List) Prepend(values ...interface{}) {
 			list.FirstElement = newElement
 			list.LastElement = newElement
 		} else {
-			list.FirstElement.next = list.FirstElement
-			list.FirstElement.value = v
+			newElement.next = list.FirstElement
+			list.FirstElement = newElement
 		}
+		list.Size++
 	}
 }
 
@@ -58,5 +59,8 @@ func (list *List) Prepend(values ...interface{}) {
 //TODO: clear (removes all elements from the list)
 
 func main() {
-	fmt.Println("hello")
+	list := New(2, 3, 3)
+	list.Prepend(5, 6, 8)
+	fmt.Println(list.FirstElement.value)
+
 }
