@@ -5,6 +5,7 @@ import "fmt"
 type element struct {
 	value interface{}
 	next  *element
+	prev  *element
 }
 
 type List struct {
@@ -13,7 +14,7 @@ type List struct {
 	Size         int
 }
 
-// new (initilize the linked list)
+// new
 func New(values ...interface{}) *List {
 	list := &List{}
 	for _, value := range values {
@@ -22,7 +23,7 @@ func New(values ...interface{}) *List {
 	return list
 }
 
-// append element
+// append
 func (list *List) Append(values ...interface{}) {
 	for _, v := range values {
 		newElement := &element{value: v}
@@ -31,13 +32,14 @@ func (list *List) Append(values ...interface{}) {
 			list.LastElement = newElement
 		} else {
 			list.LastElement.next = newElement
+			list.LastElement.next.prev = list.LastElement
 			list.LastElement = newElement
 		}
 		list.Size++
 	}
 }
 
-// prepend elment
+// prepend
 func (list *List) Prepend(values ...interface{}) {
 	for _, v := range values {
 		newElement := &element{value: v}
@@ -46,6 +48,7 @@ func (list *List) Prepend(values ...interface{}) {
 			list.LastElement = newElement
 		} else {
 			newElement.next = list.FirstElement
+			list.FirstElement.prev = newElement
 			list.FirstElement = newElement
 		}
 		list.Size++
@@ -57,19 +60,28 @@ func (list *List) Remove(id int) {
 	element := list.FirstElement
 	if id == 0 {
 		list.FirstElement = element.next
+		list.FirstElement.prev = nil
 		list.Size--
-
 	}
 	count := 0
 	for i := 0; i < list.Size; i++ {
 		if count == id-1 {
-			if element.next == list.LastElement {
-				list.LastElement = element
-				element.next = nil
+			//element that is behind the element we need to do delete
+			prevDelElement := element
+			//element that is in front of the element we need to ddelete
+			postDeleteElement := element.next.next
+			//element we need to do delete
+			delElement := element.next
+			if delElement == list.LastElement {
+				list.LastElement = prevDelElement
+				list.LastElement.prev = prevDelElement.prev
+				list.LastElement.next = nil
 				list.Size--
 				break
 			}
-			element.next = element.next.next
+			delElement = prevDelElement
+			delElement.next = postDeleteElement
+			postDeleteElement.prev = delElement
 			list.Size--
 			break
 		}
@@ -89,33 +101,8 @@ func (list *List) allValues() []interface{} {
 	return allValues
 }
 
-// empty (returns true if list does not contain enaything)
-func (list *List) empty() bool {
-	if list.FirstElement == nil {
-		return true
-	} else {
-		return false
-	}
-}
-
-// clear (removes all elements from the list)
-func (list *List) clear() {
-	list.FirstElement = nil
-	list.LastElement = nil
-	list.Size = 0
-}
-
 func main() {
-	list := New(2, 3, 4, 6, 5)
-	// list.Remove(1)
-	// fmt.Println(list.allValues())
-	// fmt.Println(list.LastElement.value)
-	// list2 := New()
-	// fmt.Println(list2.empty())
-	// list.clear()
-	// fmt.Println("all values: ", list.allValues())
-	list.Remove(1)
-	fmt.Println(list.allValues())
-	fmt.Println(list.LastElement)
-
+	list := New(1, 4, 6, 8)
+	list.Remove(2)
+	fmt.Println(list.allValues()...)
 }
