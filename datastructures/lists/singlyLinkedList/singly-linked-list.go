@@ -52,7 +52,7 @@ func (list *List) Prepend(values ...interface{}) {
 	}
 }
 
-// TODO: remove elment
+// remove elment
 func (list *List) Remove(id int) {
 	element := list.FirstElement
 	if id == 0 {
@@ -75,7 +75,7 @@ func (list *List) Remove(id int) {
 	}
 }
 
-// TODO: print all values of list
+// print all values of list
 func (list *List) allValues() []interface{} {
 	allValues := make([]interface{}, 0)
 	element := list.FirstElement
@@ -86,7 +86,14 @@ func (list *List) allValues() []interface{} {
 	return allValues
 }
 
-//TODO: empty (returns if list does not contain enaything)
+// empty (returns true if list does not contain enaything)
+func (list *List) empty() bool {
+	if list.FirstElement == nil {
+		return true
+	} else {
+		return false
+	}
+}
 
 //TODO: clear (removes all elements from the list)
 
@@ -95,4 +102,6 @@ func main() {
 	list.Remove(1)
 	fmt.Println(list.allValues())
 	fmt.Println(list.LastElement.value)
+	list2 := New()
+	fmt.Println(list2.empty())
 }
