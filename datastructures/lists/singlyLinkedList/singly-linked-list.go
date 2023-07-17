@@ -95,7 +95,12 @@ func (list *List) empty() bool {
 	}
 }
 
-//TODO: clear (removes all elements from the list)
+// clear (removes all elements from the list)
+func (list *List) clear() {
+	list.FirstElement = nil
+	list.LastElement = nil
+	list.Size = 0
+}
 
 func main() {
 	list := New(2, 3, 5)
@@ -104,4 +109,6 @@ func main() {
 	fmt.Println(list.LastElement.value)
 	list2 := New()
 	fmt.Println(list2.empty())
+	list.clear()
+	fmt.Println("all values: ", list.allValues())
 }
