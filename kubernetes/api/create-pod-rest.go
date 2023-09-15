@@ -1,4 +1,4 @@
-package basic
+package api
 
 import (
 	"bytes"

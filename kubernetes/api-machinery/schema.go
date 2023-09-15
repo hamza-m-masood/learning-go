@@ -18,7 +18,7 @@ func main() {
 					Name:  "test",
 					Image: "nginx",
 				},
-			},
+			},˙
 		},
 	}
 	Scheme.AddKnownTypes(schema.GroupVersion{
