@@ -1,0 +1,4 @@
+deepcopy-gen --input-dirs github.com/myid/myresource-crd/pkg/apis/mygroup.example.com/v1alpha1 -O zz_generated.deepcopy --output-base ../../.. --go-header-file ./hack/boilerplate.go.txt
+
+
+client-gen --clientset-name clientset --input-base "" --input github.com/myid/myresource-crd/pkg/apis/mygroup.example.com/v1alpha1 --output-package github.com/myid/myresource-crd/pkg/clientset --output-base ../../.. --go-header-file hack/boilerplate.go.txt
