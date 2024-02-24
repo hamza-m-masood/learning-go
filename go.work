@@ -1,7 +1,16 @@
-go 1.20
+go 1.21.3
 
 use (
 	./arrays-slices-iteration
+	./concurrency
+	./contexts
 	./datastructures
-	./kubernetes/api
+	./design-patterns
+	./example/hello
+	./functions
+	./generics
+	./hello
+	./interfaces
+	./kubernetes
+	./structs
 )
