@@ -1,23 +1,21 @@
 package server
 
 import (
+	"fmt"
 	"net/http"
 )
 
-func Server(){
-	http.Handle("/", &home{})
-	http.Handle("/blog", &blog{})
+func Server() {
+	//creating a function outside main
+	http.HandleFunc("/", homeServe)
+	//creating a function inside the params
+	http.HandleFunc("/holiday", func(w http.ResponseWriter, _ *http.Request){
+		w.Write([]byte("holiday!!"))
+		})
 	http.ListenAndServe(":8080", nil)
 }
 
-type home struct{}
-type blog struct{}
-
-func (h *home) ServeHTTP(w http.ResponseWriter, req *http.Request){
-	w.Write([]byte("This is my home"))
+func homeServe(w http.ResponseWriter, _ *http.Request) {
+	fmt.Println("hello")
+	w.Write([]byte("hello"))
 }
-
-func (b *blog) ServeHTTP(w http.ResponseWriter, req *http.Request){
-	w.Write([]byte("This is my blog"))
-}
-
