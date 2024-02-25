@@ -26,7 +26,7 @@ func Post(){
 		fmt.Println("error from marshalling: ", err)
 	}
 	reader := bytes.NewReader(bodyBytes)
-	resp, err := client.Post("https://jsonplaceholder.typicode.com/posts", "application/json", reader)
+	resp, err := client.Post("http://localhost:8080/post", "application/json", reader)
 	if err != nil{
 		fmt.Println("error from marshalling: ", err)
 	}

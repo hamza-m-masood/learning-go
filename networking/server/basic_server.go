@@ -5,6 +5,7 @@ import (
 	"net/http"
 )
 
+//TODO Add a database
 func Server() {
 	http.HandleFunc("/", getRequest)
 	http.HandleFunc("/post", postRequest)
@@ -21,16 +22,16 @@ func getRequest(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, "Incorrect method", http.StatusInternalServerError)
 		return
 	}
-	fmt.Println("hello")
-	w.Write([]byte("hello"))
+	fmt.Fprintln(w, "You just made a get request")
 }
 
+//TODO: Accept json from the client
 func postRequest(w http.ResponseWriter, req *http.Request) {
 	if req.Method != http.MethodPost {
 		http.Error(w, "Incorrect method", http.StatusInternalServerError)
 		return
 	}
-	w.Write([]byte("You just made a post request"))
+	fmt.Fprintln(w, "You just made a post request")
 }
 
 func deleteRequest(w http.ResponseWriter, req *http.Request) {

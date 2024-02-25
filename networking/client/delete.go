@@ -8,7 +8,7 @@ import (
 
 func Delete(){
 	client := &http.Client{}
-	req, err := http.NewRequest("DELETE", "https://jsonplaceholder.typicode.com/posts/1", nil)
+	req, err := http.NewRequest("DELETE", "http://localhost:8080/delete", nil)
 	if err!= nil {
 		fmt.Println(err)
 	}
