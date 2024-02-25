@@ -8,7 +8,6 @@ use (
 	./design-patterns
 	./functions
 	./generics
-	./hello
 	./interfaces
 	./kubernetes
 	./networking
