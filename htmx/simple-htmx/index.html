@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Go and HTMX</title>
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+</head>
+<body>
+<div id="content">
+    <button hx-post="/clicked" hx-swap="outerHTML">Click me</button>
+    <button hx-post="/mouse_entered" hx-trigger="mouseenter once">Hover me</button>
+    <button hx-get="/hello" hx-target="this" hx-swap="outerHTML">hi</button>
+</div>
+</body>
+</html>
+
