@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-//TODO Add a database
+//TODO: Add a database
 func Server() {
 	http.HandleFunc("/", getRequest)
 	http.HandleFunc("/post", postRequest)
