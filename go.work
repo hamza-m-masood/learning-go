@@ -6,11 +6,11 @@ use (
 	./contexts
 	./datastructures
 	./design-patterns
-	./example/hello
 	./functions
 	./generics
 	./hello
 	./interfaces
 	./kubernetes
+	./networking
 	./structs
 )
